@@ -1,0 +1,12 @@
+<h1>MISTER COCKTAIL</h1>
+<h3>Les meilleurs cocktails du monde</h3>
+
+<%= link_to "Ajouter un nouveau cocktail", new_cocktail_path %>
+ <h4>Nos cocktails</h4>
+ <br>
+ <% @cocktails.each do |cocktail| %>
+  <p><%= cocktail.name %></p>
+  <p><%= link_to "Voir la description du cocktail", cocktail_path(cocktail) %></p>
+  <br>
+  <% end %>
+

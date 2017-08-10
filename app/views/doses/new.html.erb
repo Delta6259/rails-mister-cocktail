@@ -1,0 +1,11 @@
+<h1>Veuillez entrer une dose pour l'ingredient choisi !</h1>
+<br>
+
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Ingredients" %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Retourner à la liste des coktails", cocktails_path %>
