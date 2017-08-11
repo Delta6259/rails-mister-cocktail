@@ -2,14 +2,24 @@
 
 <%= link_to "Ajouter une dose", new_cocktail_dose_path(@cocktail) %>
 <br>
-
 <br>
 <%= link_to "Retourner à la liste des cocktails", cocktails_path %> <br>
 <br>
-
+<br>
 <% @cocktail.doses.each do |dose| %>
   <p><%= dose.description %>: <%= dose.ingredient.name %></p>
   <%= link_to("Destroy dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }) %>
 <% end %>
+<br>
+<br>
+<p>Ajouter une photo au cocktail</p>
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit %>
+<% end %>
+
+
 
 
